@@ -1,0 +1,101 @@
+body{
+    /* variables */
+    --accent-color : orangered;
+    --background-color : white;
+    --text-color : black;
+    --btn-text-color : var(--background-color);
+    --transition-delay : 1s;
+    
+
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: var(--transition-delay);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+body.dark{
+    --accent-color : #D0D066;
+    --background-color : #333;
+    --text-color : white;
+}
+
+.title{
+    margin: 0;
+    margin-bottom: .5rem;
+}
+
+.theme-toggle-btn{
+    background-color: var(--accent-color);
+    color: var(--btn-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-radius: .1em;
+    border: none;
+    outline: none;
+    transition: var(--transition-delay);
+    transform: scale(1);
+}
+
+.theme-toggle-btn .icon{
+    margin-right: .5em;
+}
+
+.theme-toggle-btn:hover,
+.theme-toggle-btn:focus{
+    transform: scale(1.1);
+}
+
+.container{
+    --rotation : 0;
+
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    height: 200vmin;
+    transform: rotate(calc(var(--rotation) * 1deg));
+    transition: transform var(--transition-delay);
+    
+
+}
+
+
+
+.sun,
+.moon{
+    position: absolute; 
+    transition: opacity, fill, var(--transition-delay);
+    width: 30px;
+    height: 30px;
+    fill: var(--accent-color);
+}
+.sun{
+    top: 5%;
+    opacity: 1;
+}
+
+.dark .sun{
+    opacity: 0;
+}
+
+.moon{
+    bottom: 5%;
+    opacity: 0;
+    transform: rotate(180deg);
+
+}
+
+.dark .moon{
+    opacity: 1;
+}
